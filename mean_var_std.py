@@ -7,20 +7,16 @@ def calculate(list):
         input_3x3 = input_array.reshape(3,3)
     
     except ValueError:
-        print("List must contain nine numbers.")
+        raise ValueError("List must contain nine numbers.")
 
     else:
         calculations = {
-            'mean': [axis1, axis2, flattened],
-            'variance': [axis1, axis2, flattened],
-            'standard deviation': [axis1, axis2, flattened],
-            'max': [axis1, axis2, flattened],
-            'min': [axis1, axis2, flattened],
-            'sum': [axis1, axis2, flattened]
+            'mean': [input_3x3.mean(axis=0).tolist(), input_3x3.mean(axis=1).tolist(), input_3x3.mean()],
+            'variance': [input_3x3.var(axis=0).tolist(), input_3x3.var(axis=1).tolist(), input_3x3.var()],
+            'standard deviation': [input_3x3.std(axis=0).tolist(), input_3x3.std(axis=1).tolist(), input_3x3.std()],
+            'max': [input_3x3.max(axis=0).tolist(), input_3x3.max(axis=1).tolist(), input_3x3.max()],
+            'min': [input_3x3.min(axis=0).tolist(), input_3x3.min(axis=1).tolist(), input_3x3.min()],
+            'sum': [input_3x3.sum(axis=0).tolist(), input_3x3.sum(axis=1).tolist(), input_3x3.sum()]
             }
-
-
-
-
 
     return calculations
